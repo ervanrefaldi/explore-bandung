@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Explore Kota Kembang</title>
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- FILE CSS KUSTOM -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Header style Hubungi Kami (Ala Wonderful Indonesia) */
+        .page-header-contact {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/call.jpg');
+            /* Silakan ganti dengan banner-kontak.jpg jika ada */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .map-container-contact {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info-list li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info-list i {
+            font-size: 1.5rem;
+            color: #0b5ed7;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .contact-info-list h6 {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .social-card {
+            border: none;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: 0.3s;
+        }
+
+        .social-card:hover {
+            background: #e9ecef;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (Sinkron dengan halaman lain) -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container text-center">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+                Explore Kota Kembang
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Destinasi
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=alam">Wisata Alam</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=budaya">Wisata Budaya &
+                                    Edukasi</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=buatan">Wisata Buatan Manusia</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="hubungi.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HEADER HALAMAN -->
+    <header class="page-header-contact">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Hubungi Kami</h1>
+        </div>
+    </header>
+
+    <!-- 2. KONTEN UTAMA (MAP & INFO) -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <!-- Kolom Kiri: Google Maps -->
+                <div class="col-lg-6">
+                    <div class="map-container-contact">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.127814421112!2d107.58988691079366!3d-6.875317793094895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6900f08960f%3A0xe5426090516ae0b5!2sJl.%20Sariasih%20No.54%2C%20Sarijadi%2C%20Kec.%20Sukasari%2C%20Kota%20Bandung%2C%20Jawa%20Barat%2040151!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Info Kontak -->
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Informasi Pertanyaan dan Kontak</h2>
+
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <h6>Alamat Kantor</h6>
+                                <p class="text-secondary">Jl. Sariasih No. 54 Sarijadi, Kec. Sukasari, Kota Bandung,
+                                    Jawa Barat 40151</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-whatsapp"></i>
+                            <div>
+                                <h6>Pusat Kontak WhatsApp</h6>
+                                <p class="text-secondary">+62 851 4212 1131</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone-fill"></i>
+                            <div>
+                                <h6>Call Center</h6>
+                                <p class="text-secondary">022-2010202 (Jam Kerja)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope-fill"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p class="text-secondary">info@explorekotakembang.my.id</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="row g-3 mt-4">
+                        <div class="col-6">
+                            <a href="https://www.instagram.com/ervanrfldi_?igsh=MWo2ajR5M2xscXU4aA=="
+                                class="text-decoration-none" target="_blank">
+                                <div class="social-card p-3 text-center text-dark">
+                                    <i class="bi bi-instagram fs-4"></i>
+                                    <div class="small fw-bold mt-2">Instagram</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="https://wa.me/6285142121131" class="text-decoration-none" target="_blank">
+                                <div class="social-card p-3 text-center text-dark">
+                                    <i class="bi bi-whatsapp fs-4 text-success"></i>
+                                    <div class="small fw-bold mt-2">WhatsApp</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER - MODERN 3 KOLOM -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom Kiri: Nama & Deskripsi -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3">Explore Kota Kembang</h4>
+                    <p class="text-secondary">Website informasi wisata Kota Bandung.</p>
+                </div>
+
+                <!-- Kolom Tengah: Menu Informasi -->
+                <div class="col-md-4 mb-4 text-md-center">
+                    <h5 class="fw-bold mb-3">Informasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="tentang.html" class="text-secondary text-decoration-none">Tentang Kami</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="destinasi.html" class="text-secondary text-decoration-none">Destinasi</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="hubungi.html" class="text-secondary text-decoration-none">Hubungi Kami</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom Kanan: Media Sosial -->
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h5 class="fw-bold mb-3">Media Sosial</h5>
+                    <div class="social-icons">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/ervanrfldi_?igsh=MWo2ajR5M2xscXU4aA=="
+                            class="text-white fs-3 me-3"><i class="bi bi-instagram"></i></a>
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/6285142121131" class="text-white fs-3 text-success"><i
+                                class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garis Pemisah -->
+            <hr class="bg-secondary">
+
+            <!-- Copyright -->
+            <div class="row pt-2">
+                <div class="col-12 text-center text-secondary small">
+                    <p>&copy; 2024 Explore Kota Kembang. Semua Hak Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP 5 JS BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

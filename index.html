@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore Kota Kembang - Website Informasi Wisata Kota Bandung Terlengkap dan Modern.">
+    <title>Explore Kota Kembang - Website Wisata Bandung</title>
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS (Optional for social media) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- FILE CSS KUSTOM -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- 1. NAVBAR - RESPONSIVE & STICKY TOP -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container text-center">
+            <!-- LOGO TEKS (Kiri Navbar) -->
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+                Explore Kota Kembang
+            </a>
+
+            <!-- TOMBOL TOGGLE (Mobile) -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- MENU NAVBAR -->
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Destinasi
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=alam">Wisata Alam</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=budaya">Wisata Budaya &
+                                    Edukasi</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=buatan">Wisata Buatan Manusia</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hubungi.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION (BAGIAN UTAMA BERANDA) -->
+    <header id="hero" class="hero-section">
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <!-- Judul Utama -->
+                    <h1>Yuk Explore Kota Kembang</h1>
+                    <p>Jelajahi Kota Kembang dengan penuh kenangan yang terus terulang.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. SECTION PETA KOTA BANDUNG -->
+    <section id="peta" class="container my-5">
+        <h2 class="text-center mb-4 section-title">Peta Wisata Kota Bandung</h2>
+        <p class="text-center mb-4">
+            Cek lokasi Kota Kembang di bawah ini untuk memulai petualanganmu.
+        </p>
+
+        <div class="map-container"
+            style="border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+            <iframe src="https://www.google.com/maps?q=Bandung&output=embed" width="100%" height="450" style="border:0;"
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- 4. SECTION KATEGORI WISATA -->
+    <section id="kategori" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <h2 class="section-title">Kategori Wisata Kota Bandung</h2>
+                    <p>Temukan pengalaman berlibur yang sesuai dengan minatmu di Kota Bandung.</p>
+                </div>
+            </div>
+
+            <!-- GRID KATEGORI WISATA (3 KATEGORI) -->
+            <div class="row g-4">
+                <!-- 1. Wisata Alam -->
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="img/thr.jpeg" class="card-img-top" alt="Wisata Alam Bandung">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Wisata Alam</h5>
+                            <p class="card-text text-muted">Jelajahi keindahan gunung, kebun teh yang hijau, dan udara
+                                yang masih segar di sini.</p>
+                            <a href="destinasi.html?kategori=alam" class="btn btn-explore">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Wisata Budaya dan Edukasi -->
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="img/tangko.jpeg" class="card-img-top" alt="Wisata Budaya Bandung">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Wisata Budaya & Edukasi</h5>
+                            <p class="card-text text-muted">Pelajari sejarah kota Bandung dan nikmati kekayaan budaya
+                                lokal yang unik.</p>
+                            <a href="destinasi.html?kategori=budaya" class="btn btn-explore">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Wisata Buatan Manusia -->
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="img/aln.jpeg" class="card-img-top" alt="Wisata Modern Bandung">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Wisata Buatan Manusia</h5>
+                            <p class="card-text text-muted">Kunjungi berbagai objek wisata modern, taman bermain, dan
+                                sentra belanja ternama.</p>
+                            <a href="destinasi.html?kategori=buatan" class="btn btn-explore">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER - MODERN 3 KOLOM -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom Kiri: Nama & Deskripsi -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3">Explore Kota Kembang</h4>
+                    <p class="text-secondary">Website informasi wisata Kota Bandung.</p>
+                </div>
+
+                <!-- Kolom Tengah: Menu Informasi -->
+                <div class="col-md-4 mb-4 text-md-center">
+                    <h5 class="fw-bold mb-3">Informasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="tentang.html" class="text-secondary text-decoration-none">Tentang Kami</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="destinasi.html" class="text-secondary text-decoration-none">Destinasi</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="hubungi.html" class="text-secondary text-decoration-none">Hubungi Kami</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom Kanan: Media Sosial -->
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h5 class="fw-bold mb-3">Media Sosial</h5>
+                    <div class="social-icons">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/ervanrfldi_?igsh=MWo2ajR5M2xscXU4aA=="
+                            class="text-white fs-3 me-3"><i class="bi bi-instagram"></i></a>
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/6285142121131" class="text-white fs-3 text-success"><i
+                                class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garis Pemisah -->
+            <hr class="bg-secondary">
+
+            <!-- Copyright -->
+            <div class="row pt-2">
+                <div class="col-12 text-center text-secondary small">
+                    <p>&copy; 2024 Explore Kota Kembang. Semua Hak Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP 5 JS BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FILE JS KUSTOM -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
