@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinasi Wisata - Explore Kota Kembang</title>
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- FILE CSS KUSTOM -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* 1. HEADER KATEGORI DENGAN BACKGROUND GAMBAR & OVERLAY */
+        .category-header {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/natur.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            /* Tinggi sama dengan hero di beranda */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Overlay gelap transparan agar teks mudah dibaca */
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            /* Transparansi 60% hitam */
+            z-index: 1;
+        }
+
+        /* Memastikan teks berada di atas overlay */
+        .category-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 2. STYLE CARD DESTINASI */
+        .destination-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            /* Agar gambar tidak keluar dari border-radius */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Pengaturan Gambar di dalam Card agar Seragam */
+        .card-img-container {
+            height: 350px;
+            /* Gambar lebih besar */
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Gambar tetap proporsional memenuhi area */
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .card-img-top {
+            transform: scale(1.1);
+            /* Efek zoom saat di-hover */
+        }
+
+        .btn-detail {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container text-center">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+                Explore Kota Kembang
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active fw-bold" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Destinasi
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=alam">Wisata Alam</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=budaya">Wisata Budaya &
+                                    Edukasi</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=buatan">Wisata Buatan Manusia</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hubungi.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER KATEGORI (BERISI BACKGROUND IMAGE & OVERLAY) -->
+    <header class="category-header">
+        <div class="container text-center">
+            <h1 id="categoryTitle" class="display-4 fw-bold mb-3">Destinasi Wisata</h1>
+            <p id="categoryDesc" class="lead text-light mb-0">Menampilkan daftar tempat wisata terbaik di Kota Bandung.
+            </p>
+        </div>
+    </header>
+
+    <!-- DAFTAR DESTINASI -->
+    <section class="container py-5">
+        <!-- Container untuk kartu wisata, sekarang ditambahkan justify-content-center agar posisi card di tengah -->
+        <div id="destinationList" class="row g-4 justify-content-center">
+            <!-- Isi akan dimuat secara dinamis via JS -->
+        </div>
+
+        <!-- Tombol Kembali -->
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-outline-primary rounded-pill px-5 py-2">
+                <i class="bi bi-arrow-left"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT DINAMIS -->
+    <script>
+        // 1. Data Wisata Berdasarkan Kategori (Lengkap dengan Path Gambar)
+        const dataWisata = {
+            'alam': {
+                title: 'Wisata Alam',
+                description: 'Nikmati kesegaran udara dan keindahan alam Kota Bandung yang asri.',
+                banner: 'img/natur.jpg', // Background header untuk kategori Alam
+                items: [
+                    {
+                        id: 'tahura',
+                        nama: 'Taman Hutan Raya Ir. H. Djuanda',
+                        desc: 'Taman Hutan Raya Ir. H. Djuanda merupakan kawasan konservasi alam terpadu yang menyajikan perpaduan antara wisata alam dan sejarah. Di sini pengunjung dapat menjelajahi gua peninggalan Jepang dan Belanda, menikmati segarnya udara di antara ribuan pohon pinus, serta mengunjungi beberapa curug indah seperti Curug Dago dan Curug Omas.',
+                        gambar: 'img/tahur.jpg'
+                    },
+                    {
+                        id: 'babakan',
+                        nama: 'Babakan Siliwangi',
+                        desc: 'Babakan Siliwangi City Forest Path menawarkan pengalaman berjalan kaki di atas jembatan kayu (forest walk) yang membentang di tengah hutan kota. Tempat ini menjadi paru-paru kota Bandung yang sangat populer bagi warga lokal untuk bersantai, berolahraga, atau sekadar menikmati ketenangan di tengah hiruk-pikuk kota tanpa harus pergi jauh ke luar daerah.',
+                        gambar: 'img/bbkn.jpg'
+                    }
+                ]
+            },
+            'budaya': {
+                title: 'Wisata Budaya & Edukasi',
+                description: 'Pelajari sejarah peradaban, geologi, dan kekayaan intelektual bangsa di berbagai museum bersejarah yang menjadi ikon Kota Bandung.',
+                banner: 'img/sate.jpg',
+                items: [
+                    {
+                        id: 'geologi',
+                        nama: 'Museum Geologi',
+                        desc: 'Didirikan sejak tahun 1928, Museum Geologi Bandung menyimpan ribuan koleksi materi geologi mulai dari fosil purbakala yang menakjubkan seperti kerangka Tyrannosaurus Rex, berbagai jenis batuan mineral, hingga informasi mendalam mengenai fenomena alam dan sejarah terbentuknya kepulauan Indonesia serta dunia.',
+                        gambar: 'img/geo.jpg'
+                    },
+                    {
+                        id: 'kaa',
+                        nama: 'Museum Konferensi Asia Afrika',
+                        desc: 'Beralamat di Jalan Asia Afrika, museum ini menempati Gedung Merdeka yang menjadi sarat sejarah terselenggaranya Konferensi Asia Afrika pada tahun 1955. Pengunjung dapat melihat diorama, foto-foto dokumentasi, dan artefak asli yang menggambarkan semangat kebersamaan bangsa-bangsa di kawasan Asia dan Afrika.',
+                        gambar: 'img/asia.jpg'
+                    },
+                    {
+                        id: 'nuart',
+                        nama: 'Museum NuArt',
+                        desc: 'NuArt Sculpture Park merupakan galeri seni kontemporer milik pematung ternama I Nyoman Nuarta. Selain menampilkan karya-karya patung ikonik yang spektakuler, tempat ini juga berfungsi sebagai pusat budaya yang memadukan keindahan seni modern dengan lingkungan taman yang asri dan desain arsitektur yang sangat artistik.',
+                        gambar: 'img/nuart.jpg'
+                    }
+                ]
+            },
+            'buatan': {
+                title: 'Wisata Buatan Manusia',
+                description: 'Temukan keseruan liburan keluarga di berbagai tempat hiburan modern, taman hiburan, dan fasilitas olahraga yang menjadi kebanggaan warga Bandung.',
+                banner: 'img/cep.jpg',
+                items: [
+                    {
+                        id: 'lembangzoo',
+                        nama: 'Lembang Park & Zoo',
+                        desc: 'Kombinasi antara taman bermain yang tertata rapi dengan kebun binatang bergaya modern. Lembang Park & Zoo memungkinkan pengunjung untuk berinteraksi langsung dengan berbagai satwa eksotis dalam lingkungan yang bersih dan nyaman, serta menikmati berbagai fasilitas resto dan kafe dengan pemandangan alam Lembang yang sejuk.',
+                        gambar: 'img/lem.jpg'
+                    },
+                    {
+                        id: 'zoo',
+                        nama: 'Kebun Binatang Bandung',
+                        desc: 'Lokasinya yang strategis di pusat kota menjadikan kebun binatang ini sebagai destinasi favorit keluarga sejak zaman kolonial. Memiliki koleksi satwa yang lengkap serta rindangnya pepohonan tua, tempat ini menawarkan sensasi berwisata edukasi yang menyenangkan sekaligus menyegarkan bagi anak-anak maupun orang dewasa.',
+                        gambar: 'img/zoo.jpg'
+                    },
+                    {
+                        id: 'gbla',
+                        nama: 'Stadion Gelora Bandung Lautan Api',
+                        desc: 'Merupakan salah satu stadion termegah di Indonesia yang berlokasi di wilayah Gedebage. Dengan desain arsitektur yang modern dan ikonik, stadion ini tidak hanya menjadi tempat penyelenggaraan pertandingan sepak bola besar, tetapi juga menjadi landmark kemajuan pembangunan infrastruktur di Jawa Barat yang sangat menarik untuk dikunjungi.',
+                        gambar: 'img/gbla.jpg'
+                    }
+                ]
+            }
+        };
+
+        // 2. Fungsi untuk mengambil parameter 'kategori' dari URL
+        function getCategoryFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('kategori');
+        }
+
+        // 3. Fungsi untuk menyusun (Render) daftar wisata ke dalam HTML
+        function displayDestinations() {
+            const kategoriKey = getCategoryFromURL();
+            const listSection = document.getElementById('destinationList');
+            const titleH1 = document.getElementById('categoryTitle');
+            const descP = document.getElementById('categoryDesc');
+
+            // Cek apakah kategori ada dalam data
+            if (kategoriKey && dataWisata[kategoriKey]) {
+                const categoryData = dataWisata[kategoriKey];
+
+                // Update Background Header secara dinamis (menggunakan banner dari dataWisata)
+                const header = document.querySelector('.category-header');
+                const bannerPath = categoryData.banner || 'img/natur.jpg'; // Fallback ke natur.jpg jika banner tidak ada
+                header.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${bannerPath}')`;
+
+                // Update teks pada Header
+                titleH1.innerText = "Kategori: " + categoryData.title;
+                descP.innerText = categoryData.description;
+
+                // Loop (Perulangan) untuk membuat kartu wisata
+                let cardsHTML = '';
+                categoryData.items.forEach(destinasi => {
+                    cardsHTML += `
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card destination-card">
+                                <!-- Area Gambar Card -->
+                                <div class="card-img-container">
+                                    <img src="${destinasi.gambar}" class="card-img-top" alt="${destinasi.nama}">
+                                </div>
+                                <!-- Area Teks Card -->
+                                <div class="card-body p-4">
+                                    <h5 class="card-title fw-bold text-primary mb-2">${destinasi.nama}</h5>
+                                    <p class="card-text text-muted small">${destinasi.desc}</p>
+                                    <hr>
+                                    <div class="d-grid">
+                                        <a href="detail-destinasi.html?id=${destinasi.id}" class="btn btn-primary btn-detail">Lihat Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                listSection.innerHTML = cardsHTML;
+            } else {
+                // Tampilan jika kategori tidak valid
+                titleH1.innerText = "Halaman Tidak Ditemukan";
+                descP.innerText = "Silakan kembali ke menu Beranda.";
+                listSection.innerHTML = '<div class="col-12 text-center text-muted"><h4>Data destinasi tidak tersedia.</h4></div>';
+            }
+        }
+
+        // Jalankan fungsi displayDestinations saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', displayDestinations);
+    </script>
+    <!-- 5. FOOTER - MODERN 3 KOLOM -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom Kiri: Nama & Deskripsi -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3">Explore Kota Kembang</h4>
+                    <p class="text-secondary">Website informasi wisata Kota Bandung.</p>
+                </div>
+
+                <!-- Kolom Tengah: Menu Informasi -->
+                <div class="col-md-4 mb-4 text-md-center">
+                    <h5 class="fw-bold mb-3">Informasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="tentang.html" class="text-secondary text-decoration-none">Tentang Kami</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="destinasi.html" class="text-secondary text-decoration-none">Destinasi</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="hubungi.html" class="text-secondary text-decoration-none">Hubungi Kami</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom Kanan: Media Sosial -->
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h5 class="fw-bold mb-3">Media Sosial</h5>
+                    <div class="social-icons">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/ervanrfldi_?igsh=MWo2ajR5M2xscXU4aA=="
+                            class="text-white fs-3 me-3"><i class="bi bi-instagram"></i></a>
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/6285142121131" class="text-white fs-3 text-success"><i
+                                class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garis Pemisah -->
+            <hr class="bg-secondary">
+
+            <!-- Copyright -->
+            <div class="row pt-2">
+                <div class="col-12 text-center text-secondary small">
+                    <p>&copy; 2024 Explore Kota Kembang. Semua Hak Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP 5 JS BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Explore Kota Kembang</title>
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- FILE CSS KUSTOM -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Penyesuaian khusus untuk halaman Tentang */
+        .page-header {
+            position: relative;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('img/logo.png'),
+                url('img/banner-tentang.jpg');
+            background-size: cover, 300px, cover;
+            background-position: center, center, center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            /* Tinggi satu layar penuh */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-img {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
+        .section-title-about {
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .section-title-about::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #0b5ed7;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (Sinkron dengan Beranda & Destinasi) -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container text-center">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+                Explore Kota Kembang
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Destinasi
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=alam">Wisata Alam</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=budaya">Wisata Budaya &
+                                    Edukasi</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=buatan">Wisata Buatan Manusia</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hubungi.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HEADER HALAMAN -->
+    <header class="page-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Tentang Explore Kota Kembang</h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="lead mb-0">
+                        Explore Kota Kembang adalah platform informasi wisata yang menghadirkan berbagai destinasi
+                        menarik di Kota Bandung.
+                        Website ini bertujuan membantu wisatawan menemukan pengalaman terbaik saat menjelajahi Kota
+                        Kembang.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. SECTION PERTAMA (GAMBAR KIRI - TEKS KANAN) -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <!-- Kolom Kiri: Gambar -->
+                    <img src="img/tentang1.jpg" class="img-fluid rounded-4 about-img" alt="Pemandangan Bandung">
+                </div>
+                <div class="col-md-6 px-lg-5">
+                    <!-- Kolom Kanan: Teks -->
+                    <h2 class="section-title-about">Bandung, Kota dengan Sejuta Pesona</h2>
+                    <p class="text-secondary lh-lg">
+                        Bandung dikenal sebagai Kota Kembang yang memiliki berbagai daya tarik wisata, mulai dari
+                        keindahan alam pegunungan,
+                        warisan budaya yang kaya, hingga destinasi modern yang menarik bagi wisatawan. Dengan udara yang
+                        sejuk dan suasana
+                        kota yang kreatif, Bandung menjadi salah satu tujuan wisata favorit di Indonesia.
+                    </p>
+                    <p class="text-secondary lh-lg">
+                        Melalui Explore Kota Kembang, kami menghadirkan informasi lengkap mengenai berbagai kategori
+                        wisata seperti wisata
+                        alam, wisata budaya dan edukasi, serta wisata buatan manusia yang dapat dinikmati oleh semua
+                        kalangan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECTION KEDUA (TEKS KIRI - GAMBAR KANAN) -->
+    <section class="about-section bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 order-2 order-md-1 px-lg-5">
+                    <!-- Kolom Kiri: Teks -->
+                    <h2 class="section-title-about text-md-end section-title-right">Mengenal Lebih Dekat Destinasi Kota
+                        Bandung</h2>
+                    <p class="text-secondary lh-lg text-md-end">
+                        Website ini dirancang untuk memudahkan pengunjung dalam menjelajahi berbagai destinasi wisata di
+                        Kota Bandung.
+                        Setiap kategori wisata disusun secara terstruktur sehingga pengguna dapat menemukan tempat
+                        wisata sesuai minat mereka.
+                    </p>
+                    <p class="text-secondary lh-lg text-md-end">
+                        Pengunjung dapat menemukan informasi mengenai berbagai tempat menarik seperti Taman Hutan Raya,
+                        Babakan Siliwangi,
+                        museum bersejarah, hingga destinasi hiburan modern seperti Lembang Park & Zoo dan Stadion Gelora
+                        Bandung Lautan Api.
+                    </p>
+                </div>
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <!-- Kolom Kanan: Gambar -->
+                    <img src="img/tentang2.jpg" class="img-fluid rounded-4 about-img" alt="Ikon Bandung">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECTION KETIGA (GAMBAR KIRI - TEKS KANAN) -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <!-- Kolom Kiri: Gambar -->
+                    <img src="img/tentang3.jpg" class="img-fluid rounded-4 about-img" alt="Target Explore Bandung">
+                </div>
+                <div class="col-md-6 px-lg-5">
+                    <!-- Kolom Kanan: Teks -->
+                    <h2 class="section-title-about">Tujuan Explore Kota Kembang</h2>
+                    <p class="text-secondary lh-lg">
+                        Explore Kota Kembang hadir untuk menjadi sumber informasi wisata yang sederhana, informatif, dan
+                        mudah
+                        diakses oleh siapa saja. Kami ingin membantu wisatawan mengenal lebih dekat keindahan Kota
+                        Bandung serta
+                        mendorong masyarakat untuk menikmati berbagai destinasi wisata yang ada di kota ini.
+                    </p>
+                    <p class="text-secondary lh-lg">
+                        Dengan menggabungkan informasi destinasi, kategori wisata, serta tampilan website yang modern,
+                        Explore
+                        Kota Kembang diharapkan dapat memberikan pengalaman digital yang menyenangkan bagi para
+                        pengunjung.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER - MODERN 3 KOLOM -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom Kiri: Nama & Deskripsi -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3">Explore Kota Kembang</h4>
+                    <p class="text-secondary">Website informasi wisata Kota Bandung.</p>
+                </div>
+
+                <!-- Kolom Tengah: Menu Informasi -->
+                <div class="col-md-4 mb-4 text-md-center">
+                    <h5 class="fw-bold mb-3">Informasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="tentang.html" class="text-secondary text-decoration-none">Tentang Kami</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="destinasi.html" class="text-secondary text-decoration-none">Destinasi</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="hubungi.html" class="text-secondary text-decoration-none">Hubungi Kami</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom Kanan: Media Sosial -->
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h5 class="fw-bold mb-3">Media Sosial</h5>
+                    <div class="social-icons">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/ervanrfldi_?igsh=MWo2ajR5M2xscXU4aA=="
+                            class="text-white fs-3 me-3"><i class="bi bi-instagram"></i></a>
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/6285142121131" class="text-white fs-3 text-success"><i
+                                class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garis Pemisah -->
+            <hr class="bg-secondary">
+
+            <!-- Copyright -->
+            <div class="row pt-2">
+                <div class="col-12 text-center text-secondary small">
+                    <p>&copy; 2024 Explore Kota Kembang. Semua Hak Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP 5 JS BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script penyesuaian khusus (opsional) untuk judul text-end kustom (CSS rincian garis biru kanan) -->
+    <style>
+        @media (min-width: 768px) {
+            .section-title-right::after {
+                left: auto;
+                right: 0;
+            }
+        }
+    </style>
+</body>
+
+</html>

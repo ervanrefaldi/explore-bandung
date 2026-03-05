@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Destinasi - Explore Kota Kembang</title>
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- FILE CSS KUSTOM -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .detail-header {
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .detail-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .detail-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-section {
+            padding: 80px 0;
+        }
+
+        .section-title-detail {
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title-detail::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #0b5ed7;
+        }
+
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .detail-img {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        /* Galeri Scrolling */
+        .gallery-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #0b5ed7;
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            flex: 0 0 80%;
+            max-width: 400px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title-detail::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #0b5ed7;
+        }
+
+        .video-card {
+            background: #333;
+            color: white;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .btn-youtube {
+            background: #FF0000;
+            color: white;
+            font-weight: 700;
+            border-radius: 50px;
+            padding: 12px 35px;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+            border: none;
+        }
+
+        .btn-youtube:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container text-center">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+                Explore Kota Kembang
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active fw-bold" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Destinasi
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=alam">Wisata Alam</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=budaya">Wisata Budaya &
+                                    Edukasi</a></li>
+                            <li><a class="dropdown-item" href="destinasi.html?kategori=buatan">Wisata Buatan Manusia</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hubungi.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER DETAIL -->
+    <header class="detail-header" id="dynamicHeader">
+        <div class="container detail-content">
+            <h1 class="display-3 fw-bold mb-3" id="detailTitle">Memuat Nama Destinasi...</h1>
+            <p class="lead" id="detailSubtitle"></p>
+        </div>
+    </header>
+
+    <!-- KONTEN DETAIL -->
+    <main class="info-section">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Kolom Utama: Informasi & Sejarah -->
+                <div class="col-lg-8">
+                    <section class="mb-5">
+                        <h2 class="section-title-detail" id="sectionAboutTitle">Apa itu Destinasi Ini?</h2>
+                        <div id="detailDescription" class="lh-lg text-secondary">
+                            <!-- Diisi via JS -->
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="section-title-detail">Sejarah dan Asal Usul</h2>
+                        <div id="detailHistory" class="lh-lg text-secondary">
+                            <!-- Diisi via JS -->
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="section-title-detail">Tata Letak & Fasilitas</h2>
+                        <div id="detailLayout" class="lh-lg text-secondary">
+                            <!-- Diisi via JS -->
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="section-title-detail">Galeri Destinasi</h2>
+                        <p class="text-secondary small mb-3"><i class="bi bi-chevron-left me-1"></i> Geser untuk melihat
+                            foto lainnya <i class="bi bi-chevron-right ms-1"></i></p>
+                        <div class="gallery-container" id="detailGallery">
+                            <!-- Diisi via JS -->
+                        </div>
+                    </section>
+
+                    <!-- SEKSI VIDEO YT -->
+                    <section class="mb-4">
+                        <h2 class="section-title-detail">Video Dokumentasi</h2>
+                        <p id="videoDesc" class="lh-lg text-secondary">
+                            <!-- Deskripsi video tambahan -->
+                        </p>
+                    </section>
+
+                    <section id="videoSection" class="video-card">
+                        <h3 class="fw-bold mb-3"><i class="bi bi-play-circle-fill me-2"></i>Video Dokumentasi</h3>
+                        <div class="video-container mb-4">
+                            <iframe id="videoIframe" src="" title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <p class="mb-0 small opacity-75">Saksikan keseruan jelajah destinasi ini secara langsung di
+                            sini.</p>
+                        <a href="#" id="youtubeLink" target="_blank" class="btn btn-youtube">
+                            <i class="bi bi-youtube me-2"></i> Buka di YouTube
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Kolom Samping: Lokasi & Maps -->
+                <div class="col-lg-4">
+                    <div class="sticky-top" style="top: 100px;">
+                        <h4 class="fw-bold mb-4">Lokasi & Navigasi</h4>
+                        <div class="map-wrapper mb-4 position-relative">
+                            <a href="#" id="openMapBtn" target="_blank"
+                                class="btn btn-sm btn-light position-absolute top-0 start-0 m-3 shadow-sm rounded-pill px-3"
+                                style="z-index: 10;">
+                                <i class="bi bi-geo-alt-fill text-danger me-1"></i> Open in Maps
+                            </a>
+                            <div id="detailMap" style="height: 100%;">
+                                <!-- Diisi via JS -->
+                            </div>
+                        </div>
+                        <div class="card border-0 shadow-sm rounded-4 p-4">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-geo-alt-fill text-primary"></i> Alamat Lengkap</h6>
+                            <p class="text-secondary small mb-0" id="detailAddress">
+                                Memuat alamat...
+                            </p>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <a href="destinasi.html" class="btn btn-outline-primary rounded-pill">
+                                <i class="bi bi-arrow-left"></i> Kembali ke Destinasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3">Explore Kota Kembang</h4>
+                    <p class="text-secondary">Website informasi wisata Kota Bandung.</p>
+                </div>
+                <div class="col-md-4 mb-4 text-md-center">
+                    <h5 class="fw-bold mb-3">Informasi</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="tentang.html" class="text-secondary text-decoration-none">Tentang Kami</a></li>
+                        <li><a href="destinasi.html" class="text-secondary text-decoration-none">Destinasi</a></li>
+                        <li><a href="hubungi.html" class="text-secondary text-decoration-none">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h5 class="fw-bold mb-3">Media Sosial</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white fs-3 me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-3 text-success"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center text-secondary small">
+                <p>&copy; 2024 Explore Kota Kembang. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP 5 JS BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JAVASCRIPT DINAMIS UNTUK ISI KONTEN -->
+    <script>
+        const dataDetail = {
+            'tahura': {
+                nama: "Taman Hutan Raya Ir. H. Djuanda",
+                subtitle: "Paru-paru Kota Bandung yang Kaya Akan Sejarah",
+                bgHeader: "img/natur.jpg",
+                tentang: "Taman Hutan Raya Ir. H. Djuanda (Tahura Djuanda) adalah kawasan konservasi alam yang terletak di kawasan Dago Pakar. Area ini merupakan Hutan Raya pertama di Indonesia yang diresmikan oleh Presiden Soeharto. Membentang seluas kurang lebih 590 hektar, Tahura menyajikan perpaduan sempurna antara wisata alam yang asri dengan peninggalan sejarah kolonial di tengah kota Bandung.",
+                sejarah: "Kawasan ini awalnya dibuka oleh pemerintah Hindia Belanda pada tahun 1910-an untuk melindungi sumber mata air bagi masyarakat Bandung. Nama Ir. H. Djuanda diberikan sebagai bentuk penghormatan kepada pahlawan nasional yang merupakan Perdana Menteri terakhir Indonesia. Daya tarik sejarah utamanya adalah Gua Jepang (dibangun tahun 1942) dan Gua Belanda (dibangun tahun 1906), yang dulunya digunakan sebagai gudang amunisi, pusat komunikasi, hingga penjara.",
+                tataLetak: "Kawasan Tahura dibagi menjadi beberapa area utama. Dibagian depan terdapat jalur forest walk yang nyaman bagi keluarga. Jalur utama akan membawa pengunjung menuju kompleks Gua Belanda dan Gua Jepang. Jika terus berjalan lebih jauh, pengunjung akan menemukan Tebing Keraton yang ikonik serta beberapa air terjun seperti Curug Omas dan Curug Lalay. Fasilitas di sini mencakup area parkir luas, mushola, toilet, sentra kuliner lokal, hingga menara pengawas.",
+                alamat: "Kompleks Tahura, Jl. Ir. H. Juanda No.99, Ciburial, Kec. Cimenyan, Kabupaten Bandung, Jawa Barat 40198",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.266055602983!2d107.62833491046491!3d-6.858682293111168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70023ed7267%3A0x26b073aedf9fc12a!2stahura%20dago!5e0!3m2!1sen!2sid!4v1772679050888!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+                mapLink: "https://maps.app.goo.gl/CViGzNA1RsTEUYnZ9",
+                gallery: ["img/tahur.jpg", "img/goa.jpg", "img/curug.jpg", "img/op.jpg"],
+                videoDesc: "Saksikan keindahan alam dan nilai sejarah yang tak ternilai dari Taman Hutan Raya Ir. H. Djuanda dalam tayangan eksklusif ini.",
+                videoURL: "https://youtu.be/g9bC30yoD5I?si=r_5n8JPx8zfKqeRp"
+            },
+            'babakan': {
+                nama: "Babakan Siliwangi",
+                subtitle: "Hutan Kota dengan Jembatan Kayu nan Artistik",
+                bgHeader: "img/natur.jpg",
+                tentang: "Babakan Siliwangi, atau sering disebut Baksil, adalah salah satu area ruang terbuka hijau paling populer di pusat kota Bandung. Tempat ini dikenal dengan Forest Walk-nya, yaitu jembatan kayu yang melingkar di atas pepohonan rindang, memungkinkan pengunjung berjalan-jalan di tengah hutan tanpa harus menyentuh tanah.",
+                sejarah: "Awalnya, tempat ini adalah area sabuk hijau yang ditetapkan sejak zaman Belanda. Pada perkembangannya, Baksil sempat terancam oleh pembangunan komersial, namun berkat perjuangan aktivis lingkungan dan seniman Bandung, kawasan ini tetap dipertahankan sebagai hutan kota. Kini, Baksil menjadi salah satu paru-paru kota terbaik di Indonesia.",
+                tataLetak: "Struktur utama Baksil terdiri dari Forest Walk sepanjang kurang lebih 2 km yang sangat fotogenik. Terdapat pula sanggar seni dan kafe-kafe estetik di sekitarnya. Tata letaknya didesain agar pengunjung dapat menikmati suasana hutan dari berbagai sudut ketinggian, menjadikannya tempat favorit untuk fotografi dan olahraga ringan.",
+                alamat: "Jl. Siliwangi No.7, Cipaganti, Kec. Coblong, Kota Bandung, Jawa Barat 40131",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.056024!2d107.6105!3d-6.8839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6f1!2sBabakan%20Siliwangi!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/1Hfrpjqv4AGTKSWn7",
+                gallery: ["img/bbkn.jpg", "img/bbkn2.jpg", "img/bbkn3.jpg",],
+                videoDesc: "Nikmati suasana Forest Walk Babakan Siliwangi dari ketinggian melalui video dokumentasi menarik ini.",
+                videoURL: "https://youtu.be/9rTcG3b5UME?si=tuvhBtDCC-y0IA8H"
+            },
+            'geologi': {
+                nama: "Museum Geologi",
+                subtitle: "Menjelajahi Sejarah Bumi dan Kehidupan Purba",
+                bgHeader: "img/sate.jpg",
+                tentang: "Museum Geologi Bandung menyimpan koleksi materi geologi mulai dari fosil purba, jenis batuan, hingga peta geologi kepulauan Indonesia.",
+                sejarah: "Didirikan pada 16 Mei 1928 oleh pemerintahan Hindia Belanda untuk mendukung penelitian sumber daya mineral di nusantara.",
+                tataLetak: "Terdiri dari dua lantai dengan ruang koleksi fosil dinosaurus, mineral, hingga simulasi gempa bumi.",
+                alamat: "Jl. Diponegoro No.57, Cihaur Geulis, Kec. Cibeunying Kaler, Kota Bandung",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.84!2d107.62!3d-6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65!2sMuseum%20Geologi!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/BD5MFcrY7ASZdMiP9",
+                gallery: ["img/geo.jpg", "img/geo2.jpg", "img/geo5.jpg", "img/geo4.jpg"],
+                videoDesc: "Telusuri lebih dalam koleksi prasejarah yang ada di Museum Geologi Bandung.",
+                videoURL: "https://youtu.be/EAB-rh-_ZmY?si=gbucqEOTRKS9PhsM"
+            },
+            'kaa': {
+                nama: "Museum Konferensi Asia Afrika",
+                subtitle: "Saksi Sejarah Persaudaraan Bangsa Asia-Afrika",
+                bgHeader: "img/sate.jpg",
+                tentang: "Museum yang mengabadikan kenangan Konferensi Asia Afrika tahun 1955 sebagai tonggak sejarah solidaritas antar bangsa.",
+                sejarah: "Berada di Gedung Merdeka yang dirancang oleh arsitek Wolff Schoemaker pada tahun 1926.",
+                tataLetak: "Menampilkan diorama sidang, ruang konferensi asli, perpustakaan sejarah, dan koleksi foto dokumenter.",
+                alamat: "Jl. Asia Afrika No.65, Braga, Kec. Sumur Bandung, Kota Bandung",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.84!2d107.61!3d-6.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6!2sMuseum%20KAA!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/ayKTfV5oJMfRifdq6",
+                gallery: ["img/asia.jpg", "img/sate.jpg", "img/geo.jpg"],
+                videoDesc: "Pelajari semangat Dasasila Bandung yang lahir di gedung legendaris ini.",
+                videoURL: "https://youtu.be/wmG5OqyMkTg?si=vKROI1dvnsn8_xcg"
+            },
+            'nuart': {
+                nama: "Museum NuArt",
+                subtitle: "Oase Seni Patung Kontemporer",
+                bgHeader: "img/sate.jpg",
+                tentang: "NuArt Sculpture Park adalah galeri seni terbuka milik pematung Nyoman Nuarta, kreator Garuda Wisnu Kencana.",
+                sejarah: "Didirikan sebagai wadah ekspresi seni dan budaya yang menggabungkan estetika alam dengan karya patung modern.",
+                tataLetak: "Memiliki gedung galeri dua lantai, taman patung terbuka, teater mini, dan kafetaria yang estetik.",
+                alamat: "Jl. Setra Duta Raya No.L 6, Sarijadi, Kec. Sukasari, Kota Bandung",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961!2d107.58!3d-6.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e!2sNuArt%20Sculpture%20Park!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/4E3nohvmiPeNsSSK6",
+                gallery: ["img/nuart.jpg", "img/sate.jpg", "img/cep.jpg"],
+                videoDesc: "Saksikan proses kreatif pembuatan patung-patung megah di Museum NuArt.",
+                videoURL: "https://youtu.be/QtOs0fzoRJo?si=6dey4R33bR54xAFn"
+            },
+            'lembangzoo': {
+                nama: "Lembang Park & Zoo",
+                subtitle: "Interaksi Satwa dalam Taman Modern",
+                bgHeader: "img/cep.jpg",
+                tentang: "Kebun binatang modern yang menggabungkan konsep wisata edukasi satwa dengan taman bermain keluarga.",
+                sejarah: "Merupakan destinasi wisata baru di kawasan Lembang yang mengedepankan kesejahteraan satwa dalam kandang modern.",
+                tataLetak: "Terdapat Bird Aviary raksasa, area karnivora, kafetaria bertema kucing, dan kano di danau buatan.",
+                alamat: "Jl. Kolonel Masturi No.171, Sukajaya, Kec. Lembang, Kabupaten Bandung Barat",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.3!2d107.59!3d-6.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e!2sLembang%20Park%20%26%20Zoo!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/w2MnZve7st9foFBu6",
+                gallery: ["img/lem.jpg", "img/cep.jpg", "img/natur.jpg"],
+                videoDesc: "Keseruan berinteraksi dengan aneka satwa di Lembang Park & Zoo.",
+                videoURL: "https://youtu.be/JfMm3tqSEBE?si=1Xk5J2IEvgeae7vw"
+            },
+            'zoo': {
+                nama: "Kebun Binatang Bandung",
+                subtitle: "Legenda Rekreasi Margasatwa Kota",
+                bgHeader: "img/zoo1.jpg",
+                tentang: "Kebun Binatang Bandung adalah cagar alam hewani di tengah kota yang telah ada sejak era 1930-an.",
+                sejarah: "Semula bernama Bandung Zoological Park, didirikan oleh perkumpulan pecinta hewan pada masa kolonial.",
+                tataLetak: "Memiliki jalur rindang dengan koleksi gajah, harimau, gajah, serta wahana air dan taman bermain anak.",
+                alamat: "Jl. Tamansari No.17, Lb. Siliwangi, Kec. Coblong, Kota Bandung",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.0!2d107.61!3d-6.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e!2sKebun%20Binatang%20Bandung!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/fHrXynyp1zv1SVz19",
+                gallery: ["img/zoo.jpg", "img/zoo2.jpg", "img/zoo3.jpg"],
+                videoDesc: "Menikmati suasana asri kebun binatang legendaris di jantung kota Bandung.",
+                videoURL: "https://youtu.be/ASwMkClYNvw?si=K7tsLxdzB3LawqXk"
+            },
+            'gbla': {
+                nama: "Stadion Gelora Bandung Lautan Api",
+                subtitle: "Kebanggaan Olahraga Jawa Barat",
+                bgHeader: "img/cep.jpg",
+                tentang: "Stadion taraf internasional yang menjadi rumah bagi pertandingan sepak bola besar di Jawa Barat.",
+                sejarah: "Diresmikan pada tahun 2013 dan dinamai berdasarkan peristiwa sejarah perjuangan rakyat Bandung.",
+                tataLetak: "Memiliki kapasitas ribuan penonton dengan lapangan rumput standar FIFA dan fasilitas atletik lengkap.",
+                alamat: "Rancanumpang, Kec. Gedebage, Kota Bandung, Jawa Barat",
+                mapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6!2d107.7!3d-6.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e!2sStadion%20GBLA!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+                mapLink: "https://maps.app.goo.gl/wLxRfxMLxuQq8L9x5",
+                gallery: ["img/gbla.jpg", "img/gbla3.jpg", "img/gbla4.jpg"],
+                videoDesc: "Kemegahan Stadion GBLA saat menyelenggarakan pertandingan besar.",
+                videoURL: "https://youtu.be/lg9uDplLERA?si=QQ823os0JwyA_PoE"
+            }
+        };
+
+        function renderDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            const content = dataDetail[id];
+
+            if (content) {
+                document.title = content.nama + " - Explore Kota Kembang";
+                document.getElementById('detailTitle').innerText = content.nama;
+                document.getElementById('detailSubtitle').innerText = content.subtitle;
+                document.getElementById('dynamicHeader').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${content.bgHeader}')`;
+                document.getElementById('detailDescription').innerText = content.tentang;
+                document.getElementById('detailHistory').innerText = content.sejarah;
+                document.getElementById('detailLayout').innerText = content.tataLetak;
+                document.getElementById('detailAddress').innerText = content.alamat;
+                document.getElementById('detailMap').innerHTML = content.mapEmbed;
+                document.getElementById('openMapBtn').href = content.mapLink;
+
+                // Render Gallery
+                const galleryHTML = content.gallery.map(img => `
+                    <div class="gallery-item">
+                        <img src="${img}" alt="Foto Galeri">
+                    </div>
+                `).join('');
+                document.getElementById('detailGallery').innerHTML = galleryHTML;
+
+                // Render Video
+                const videoURL = content.videoURL;
+                document.getElementById('videoDesc').innerText = content.videoDesc;
+                document.getElementById('youtubeLink').href = videoURL;
+
+                // Ekstrak ID YouTube dan set ke iframe
+                let videoID = "";
+                if (videoURL.includes("youtu.be/")) {
+                    videoID = videoURL.split("youtu.be/")[1].split("?")[0];
+                } else if (videoURL.includes("v=")) {
+                    videoID = videoURL.split("v=")[1].split("&")[0];
+                }
+
+                if (videoID) {
+                    document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${videoID}`;
+                }
+            } else {
+                document.body.innerHTML = '<div class="text-center py-5"><h1>Destinasi Tidak Ditemukan</h1><a href="destinasi.html">Kembali</a></div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDetail);
+    </script>
+</body>
+
+</html>
